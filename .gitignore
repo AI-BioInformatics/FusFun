@@ -9,4 +9,7 @@ __pycache__/
 
 # Risorse pesanti (GitHub non accetta 8.5GB)
 resources/
-
+resources/FAISS/
+resources/lookups/
+resources/ensembl/
+\

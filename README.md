@@ -19,6 +19,25 @@ source fusfun_env/bin/activate
 pip install -r requirements.txt
 ```
 
+
+---
+
+## 📂 Data Setup (Required)
+
+To keep the repository lightweight, the large resource files (FAISS indices, lookups, and genomic references) are hosted externally. **These files (~8.5GB) are mandatory for the pipeline to run.**
+
+1. **Download the resources:** Access the Google Drive folder [here](https://drive.google.com/drive/folders/1kcgopzXEs2E--cce5o9yz_gv297p_2t0?usp=sharing).
+2. **Placement:** Download the contents and place them inside the `resources/` directory in the project root.
+3. **Structure Check:** After downloading, your folder structure must look like this:
+
+```text
+FusFun/
+├── resources/
+│   ├── FAISS/          # Index files and embeddings
+│   ├── lookups/        # Peptide and CDS lookup tables
+│   ├── ensembl/        # Genomic references and HGNC data
+│   └── gene_features/  # Known driver fusions
+
 ---
 
 ## OVERVIEW
