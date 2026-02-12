@@ -1,0 +1,8 @@
+resources/FAISS/** filter=lfs diff=lfs merge=lfs -text
+resources/ensembl/** filter=lfs diff=lfs merge=lfs -text
+resources/lookups/** filter=lfs diff=lfs merge=lfs -text
+*.faiss filter=lfs diff=lfs merge=lfs -text
+*.index filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.npy filter=lfs diff=lfs merge=lfs -text

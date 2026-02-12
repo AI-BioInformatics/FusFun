@@ -1,0 +1,12 @@
+# Ambiente virtuale
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Risorse pesanti (GitHub non accetta 8.5GB)
+resources/
+

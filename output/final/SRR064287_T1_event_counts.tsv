@@ -1,0 +1,13 @@
+type	count
+true_fusion_1.5	0
+true_fusion_1.6	0
+true_fusion_1.8	0
+true_fusion_2.0	0
+true_fusion_2.5	0
+true_fusion_3.0	0
+promoter_hijacking_500	0
+promoter_hijacking_1000	0
+read_through	0
+read_through_loose	0
+same_gene_fusion	0
+none	18

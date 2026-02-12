@@ -1,0 +1,27 @@
+protein_id	analysis	signature_accession	signature_description	start	end	feat_len	ipr_id	ipr_desc	go_terms	pathways
+1|side=retained_peptide1|len=503	Pfam	PF05794	T-complex protein 11	78	502	425	IPR008862	T-complex 11		
+1|side=retained_peptide1|len=503	PANTHER	PTHR12832	TESTIS-SPECIFIC PROTEIN PBS13  T-COMPLEX 11	85	502	418	IPR008862	T-complex 11		
+2|side=retained_peptide1|len=383	ProSiteProfiles	PS50200	Ras-associating (RA) domain profile.	273	362	90	IPR000159	Ras-associating domain		
+2|side=retained_peptide1|len=383	Pfam	PF00788	Ras association (RalGDS/AF-6) domain	274	360	87	IPR000159	Ras-associating domain		
+2|side=retained_peptide1|len=383	ProSiteProfiles	PS50057	FERM domain profile.	275	383	109	IPR000299	FERM domain		
+2|side=retained_peptide1|len=383	ProSiteProfiles	PS50106	PDZ domain profile.	43	136	94	IPR001478	PDZ domain		
+2|side=retained_peptide1|len=383	Pfam	PF00787	PX domain	189	264	76	IPR001683	Phox homology		
+2|side=retained_peptide1|len=383	ProSiteProfiles	PS50195	PX domain profile.	161	269	109	IPR001683	Phox homology		
+2|side=retained_peptide1|len=383	Pfam	PF00595	PDZ domain	45	132	88	IPR001478	PDZ domain		
+2|side=retained_peptide2|len=195	Pfam	PF02812	Glu/Leu/Phe/Val dehydrogenase, dimerisation domain	114	194	81	IPR006097	Glutamate/phenylalanine/leucine/valine/L-tryptophan dehydrogenase, dimerisation domain		
+2|side=lost_peptide2|len=363	Pfam	PF02812	Glu/Leu/Phe/Val dehydrogenase, dimerisation domain	1	46	46	IPR006097	Glutamate/phenylalanine/leucine/valine/L-tryptophan dehydrogenase, dimerisation domain		
+2|side=lost_peptide2|len=363	Pfam	PF00208	Glutamate/Leucine/Phenylalanine/Valine dehydrogenase	68	256	189	IPR006096	Glutamate/phenylalanine/leucine/valine/L-tryptophan dehydrogenase, C-terminal		
+3|side=retained_peptide1|len=343	Pfam	PF00456	Transketolase, thiamine diphosphate binding domain	88	239	152	IPR005474	Transketolase, N-terminal		
+3|side=retained_peptide1|len=343	Pfam	PF00456	Transketolase, thiamine diphosphate binding domain	25	83	59	IPR005474	Transketolase, N-terminal		
+3|side=retained_peptide1|len=343	Pfam	PF02779	Transketolase, pyrimidine binding domain	288	343	56	IPR005475	Transketolase-like, pyrimidine-binding domain		
+3|side=retained_peptide1|len=343	PANTHER	PTHR43195	TRANSKETOLASE	84	343	260	IPR051424	Transketolase-like		
+3|side=lost_peptide1|len=253	Pfam	PF02780	Transketolase, C-terminal domain	122	243	122	IPR033248	Transketolase, C-terminal domain		
+3|side=lost_peptide1|len=253	Pfam	PF02779	Transketolase, pyrimidine binding domain	2	108	107	IPR005475	Transketolase-like, pyrimidine-binding domain		
+3|side=lost_peptide1|len=253	PANTHER	PTHR43195	TRANSKETOLASE	1	251	251	IPR051424	Transketolase-like		
+4|side=retained_peptide1|len=624	Pfam	PF04048	Exocyst complex component Sec8 N-terminal	45	143	99	IPR007191	Exocyst complex component Sec8, N-terminal		
+4|side=retained_peptide1|len=624	Pfam	PF20652	Exocyst complex component Sec8 C-terminal	271	503	233	IPR048630	Exocyst complex component Sec8, middle helical bundle		
+4|side=lost_peptide1|len=350	PANTHER	PTHR14146	EXOCYST COMPLEX COMPONENT 4	4	335	332	IPR039682	Exocyst complex component Sec8/EXOC4		
+4|side=retained_peptide2|len=505	PANTHER	PTHR14146	EXOCYST COMPLEX COMPONENT 4	18	505	488	IPR039682	Exocyst complex component Sec8/EXOC4		
+4|side=retained_peptide2|len=505	Pfam	PF04048	Exocyst complex component Sec8 N-terminal	45	143	99	IPR007191	Exocyst complex component Sec8, N-terminal		
+4|side=retained_peptide2|len=505	Pfam	PF20652	Exocyst complex component Sec8 C-terminal	271	503	233	IPR048630	Exocyst complex component Sec8, middle helical bundle		
+4|side=lost_peptide2|len=469	PANTHER	PTHR14146	EXOCYST COMPLEX COMPONENT 4	1	454	454	IPR039682	Exocyst complex component Sec8/EXOC4		

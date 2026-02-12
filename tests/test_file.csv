@@ -1,0 +1,5 @@
+Gene1	Gene2	Chromosome1	Chromosome2	Breakpoint1	Breakpoint2	FusionStrand1	FusionStrand2	GeneStrand1	GeneStrand2	type	site1	site2	transcript_id1	transcript_id2	reading_frame	5p_role	3p_role
+TCP11L1	HIPK3	11	11	33072653	33286413	+	+	+	+	deletion/read-through	CDS/splice-site	5'UTR/splice-site	ENST00000527661	ENST00000303296	in-frame	[]	['Kinases']
+SNX27	GLUD1	1	10	151668635	87074614	+	-	+	-	translocation	CDS/splice-site	CDS/splice-site	ENST00000368843	ENST00000277865	in-frame	[]	[]
+TKTL1	EMD	X	X	154315337	154381922	+	-	+	.	inversion	CDS/splice-site	intergenic	ENST00000369915	.	out-of-frame	[]	[]
+EXOC4	EXOC4	7	7	133895735	133817325	+	+	+	+	duplication/non-canonical_splicing	CDS/splice-site	CDS/splice-site	ENST00000253861	ENST00000253861	in-frame	.	.
