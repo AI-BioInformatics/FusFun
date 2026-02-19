@@ -30,14 +30,14 @@ To keep the repository lightweight, the large resource files (FAISS indices, loo
 2. **Placement:** Download the contents and place them inside the `resources/` directory in the project root.
 3. **Structure Check:** After downloading, your folder structure must look like this:
 
-```text
+```bash
 FusFun/
 ├── resources/
 │   ├── FAISS/          # Index files and embeddings
 │   ├── lookups/        # Peptide and CDS lookup tables
 │   ├── ensembl/        # Genomic references and HGNC data
 │   └── gene_features/  # Known driver fusions
-
+```
 ---
 
 ## OVERVIEW
@@ -50,7 +50,6 @@ What you will find in this framework:
 3. Arriba expression analysis: Extract retained vs lost expression signal from Arriba-like PDF plots by locating the breakpoint in each histogram and quantifying exon-level bar heights.
 4. Feature analysis: Derive fusion-level feature flags from lookups and domain outputs (strand coherence, UTR retention, truncation, frame status, and class-specific domain loss).
 5. Functional analysis: Add biological interpretation flags per fusion (same-gene, read-through, promoter hijacking, true-fusion thresholds).
-6. Oncogenicity scoring: Compute a diffusion-based PU-learning driver score per fusion.
 
 Note: Step 3 and the “true fusion” category rely on Arriba detection tool PDFs.
 If such PDFs are missing, the corresponding analyses will be skipped, but all other steps will still run.
@@ -176,7 +175,7 @@ python -m run_pipeline --input input/your_file --gpu 4
 - output/interim/interpro/file.tsv and output/interim/faiss/file.tsv : tables containing only id + retained and lost retrieved protein domains of your fusions from stage 2 (domain retrieval)
 - output/interim/file_features.tsv : tables containing only id + columns added by stage 4 (features extraction).
 - output/interim/file_annotated.tsv : tables containing only id + columns added by stage 5 (functional annotation).
-- output/interim/file_scores.tsv : tables containing only id + columns added by stage 6 (oncogenicity scoring).
+
 
 CARE: ALL THE FILES LIVING UNDER THE FOLDER /interim WILL BE DELETED, PASS THIS COMMAND ONLY AFTER CHECKING NO FILE YOU CARE ABOUT IS THERE.
 
@@ -202,7 +201,7 @@ Map fusion breakpoints to coding sequences and reconstruct the retained and lost
 3. Convert breakpoints → CDS coordinates → amino-acid index.  
 4. Split each peptide into `retained_peptide{1,2}` and `lost_peptide{1,2}`.  
 5. Replace `*` with `X`; fill missing fields with `"."`.  
-6. Save TSV + FASTA under `output/interim/peptide_sequences/`.
+
 
 **Outputs**  
 ```
@@ -395,34 +394,6 @@ python -m run_pipeline --input tests/test_file.csv
 ```
 ---
 
-## 🔹 Stage 06 — Oncogenicity Scoring
-
-**Purpose**  
-Compute a diffusion-based PU-learning driver score per fusion.
-
-**Inputs**  
-- `output/interim/<stem>_annotated.tsv`  
-- `resources/gene_features/known_driver_fusions.tsv` (positive seeds)
-
-**Output**  
-```
-output/final/<stem>_final.tsv
-```
-
-**Parameters**  
-`HASH_DIM`, `KNN_K`, `ALPHA`, `MAX_ITER`, `TFIDF_ON`, `TFIDF_NORM`
-
-**CLI usage**  
-```bash
-python -m pipeline.S06_oncogenicity_scoring <input_tsv>
-```
-or via pipeline  
-```bash
-python -m run_pipeline --input tests/test_file.csv
-```
-
----
-
 ## 🔹 Index Construction Pipeline (S01–S05)
 
 **Purpose**  
@@ -524,7 +495,6 @@ FusFun
 │   ├── S03_expression_analysis.py
 │   ├── S04_feature_analysis.py
 │   ├── S05_functional_annotation.py
-│   └── S06_oncogenicity_scoring.py
 │
 ├── input/                       # Example inputs (CSVs, Arriba PDFs)
 ├── resources/                   # Reference data (Ensembl, lookups, FAISS index)
@@ -548,7 +518,7 @@ FusFun
 | FAISS Index | `FAISS_DIR`, `FAISS_INDEX`, `FAISS_METRIC` | Index path and similarity metric |
 | Expression Analysis | `EXP_BATCH_SIZE`, `EXP_WRITE_CSV`, `EXP_WRITE_JSON` | Arriba PDF settings |
 | Feature / Function | `KINASES_KEY_DOMS`, `TS_KEY_DOMS`, `CANCER_KEY_DOMS` | Domain category keys |
-| Oncogenicity Scoring | `HASH_DIM`, `KNN_K`, `ALPHA`, `MAX_ITER`, `TFIDF_ON` | PU diffusion parameters |
+
 
 ---
 # ⚙️ Configuration Reference (`config/config.py`)
@@ -685,26 +655,6 @@ FusFun
 | `RT_USE_TX_ANCHORS` | 1 = use transcript anchors (TSS/TES); 0 = gene anchors. |
 | `RT_PROMOTE_LOOSE` | Upgrade loose read-through to strict (binary flag). |
 | `PH_WIN_500`, `PH_WIN_1000`, `PH_PROM_WIN` | Genomic windows for promoter hijacking detection. |
-
-</details>
-
-<details>
-<summary><b>🧮 Stage-06 — Oncogenicity Scoring</b></summary>
-
-| Variable | Description |
-|-----------|-------------|
-| `KNOWN_POSITIVES` | CSV of known oncogenic driver fusions. |
-| `HASH_DIM` | Dimensionality of hashed feature vectors. |
-| `TFIDF_ON` | Toggle TF-IDF weighting (else binary). |
-| `TFIDF_NORM` | Normalization method (`l1`, `l2`, or `none`). |
-| `KNN_K` | Number of nearest neighbors in graph diffusion. |
-| `ALPHA` | Diffusion retention factor (1 − α = teleport rate). |
-| `MAX_ITER` | Maximum diffusion iterations. |
-| `TOL` | Convergence tolerance for diffusion. |
-| `METRICS_K` | K-values for recall/EF/NDCG evaluation. |
-| `EVAL` | True = research mode (train/holdout split). |
-| `SPLIT_HOLDOUT_FRAC` | Fraction of positives reserved for holdout. |
-| `RANDOM_SEED` | Random seed for reproducibility. |
 
 </details>
 
